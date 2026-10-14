@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>تطعيمات المحلة الكبرى</title>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f7f6;--card:#fff;--ink:#16292c;--mut:#5d7276;--line:#dbe5e4;--pri:#0e5a62;--pri2:#d9eceb;--warn:#b4570a;--warnbg:#fdeccf;--ok:#1f7a45;--okbg:#dcf1e3;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a1c;--card:#172427;--ink:#e6f0ef;--mut:#93a9ac;--line:#27393c;--pri:#5cc3cc;--pri2:#1b3a3e;--warn:#f0b160;--warnbg:#3b2a12;--ok:#7fd9a0;--okbg:#17362380}}
+:root[data-theme="dark"]{--bg:#0f1a1c;--card:#172427;--ink:#e6f0ef;--mut:#93a9ac;--line:#27393c;--pri:#5cc3cc;--pri2:#1b3a3e;--warn:#f0b160;--warnbg:#3b2a12;--ok:#7fd9a0;--okbg:#17362380}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Tajawal,Tahoma,Arial,sans-serif;font-size:16px;line-height:1.6}
+.app{max-width:520px;margin:0 auto;padding:0 14px 40px}
+header{padding:18px 2px 10px}
+h1{margin:0;font-size:22px;font-weight:800}
+.sub{color:var(--mut);font-size:14px}
+.roles{display:flex;gap:6px;background:var(--pri2);padding:5px;border-radius:14px;margin:10px 0 16px;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+.roles button{flex:1;border:0;background:transparent;color:var(--pri);font:inherit;font-weight:700;font-size:14px;padding:9px 4px;border-radius:10px;cursor:pointer}
+.roles button.on{background:var(--pri);color:#fff}
+button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid var(--warn);outline-offset:2px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:14px;margin-bottom:12px}
+h2{font-size:17px;margin:0 0 10px;font-weight:800}
+.tabs{display:flex;gap:8px;margin-bottom:12px;overflow-x:auto}
+.tabs button{border:1px solid var(--line);background:var(--card);color:var(--ink);font:inherit;padding:7px 14px;border-radius:99px;white-space:nowrap;cursor:pointer}
+.tabs button.on{background:var(--pri);color:#fff;border-color:var(--pri)}
+.age{border-bottom:1px solid var(--line);padding:10px 0}
+.age:last-child{border:0}
+.age b{display:block;color:var(--pri)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.chip{background:var(--pri2);color:var(--pri);padding:2px 10px;border-radius:99px;font-size:14px}
+.note{background:var(--warnbg);color:var(--warn);border-radius:12px;padding:10px 12px;font-size:13.5px;margin-bottom:12px}
+.off{padding:12px 0;border-bottom:1px solid var(--line)}
+.off:last-child{border:0}
+.off a{color:var(--pri);font-weight:700;margin-inline-end:14px}
+select{width:100%;font:inherit;padding:11px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--ink)}
+.row{display:flex;align-items:center;justify-content:space-between;padding:9px 0;border-bottom:1px solid var(--line)}
+.row:last-of-type{border:0}
+.step{display:flex;align-items:center;gap:6px}
+.step button{width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--card);color:var(--pri);font-size:22px;font-weight:700;cursor:pointer}
+.step input{width:62px;height:40px;text-align:center;font:inherit;font-weight:700;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink)}
+.save{width:100%;margin-top:12px;border:0;background:var(--pri);color:#fff;font:inherit;font-weight:800;font-size:17px;padding:14px;border-radius:14px;cursor:pointer}
+.big{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.big div{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px}
+.big strong{display:block;font-size:30px;line-height:1.2;font-weight:800;color:var(--pri)}
+.bar{display:flex;align-items:center;gap:8px;margin:7px 0;font-size:14px}
+.bar span:first-child{width:120px;flex:none}
+.bar i{flex:1;height:12px;background:var(--pri2);border-radius:6px;overflow:hidden;display:block}
+.bar i b{display:block;height:100%;background:var(--pri);border-radius:6px}
+.bar em{width:44px;text-align:left;font-style:normal;font-weight:700}
+.tag{font-size:12.5px;padding:2px 9px;border-radius:99px;font-weight:700}
+.tag.ok{background:var(--okbg);color:var(--ok)}
+.tag.no{background:var(--warnbg);color:var(--warn)}
+.tr{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.tr:last-child{border:0}
+.toast{position:fixed;bottom:calc(20px + env(safe-area-inset-bottom,0px));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:11px 20px;border-radius:12px;font-weight:700;opacity:0;pointer-events:none;transition:opacity .2s}
+.toast.show{opacity:1}
+.hide{display:none}.in{width:100%;font:inherit;padding:11px;border:1px solid var(--line);border-radius:12px;background:var(--card);color:var(--ink);margin-bottom:8px}.err{color:var(--warn);font-size:14px;margin-top:8px}.ok2{color:var(--ok);font-size:14px;margin-top:8px}.mini{border:0;border-radius:10px;padding:7px 13px;font:inherit;font-weight:700;cursor:pointer;margin-inline-start:6px}.mini.y{background:var(--pri);color:#fff}.mini.n{background:var(--warnbg);color:var(--warn)}.chip{cursor:pointer;border:0;font:inherit}
+</style>
+</head>
+<body>
+<div class="app">
+<header><h1>تطعيمات المحلة الكبرى</h1><div class="sub">إدارة أول وإدارة ثان · نموذج تجريبي</div><div class="note" style="margin-top:10px">نسخة للعرض فقط: كل الأسماء والأرقام وهمية.</div></header>
+<nav class="roles" id="roles"><button data-r="pub" class="on">للعامة</button><button data-r="staff" id="staffBtn">دخول العاملين</button></nav>
+
+<main id="pub">
+<div id="alert"></div>
+<div class="tabs" id="ptabs"><button data-t="sch" class="on">جدول التطعيمات</button><button data-t="cam">المواعيد</button><button data-t="near">أقرب مكتب</button><button data-t="me">تنبيهات طفلي</button></div>
+<div id="sch"></div><div id="cam" class="hide"></div><div id="near" class="hide"></div><div id="me" class="hide"></div>
+</main>
+
+<main id="staff" class="hide">
+<div id="auth">
+<div class="card"><h2>جولة العرض</h2><div class="sub" style="margin-bottom:6px">اضغط "ادخل" لتجربة كل دور بدون كتابة أرقام:</div><div id="tour"></div><button class="mini n" id="rst" style="margin-top:10px">إعادة ضبط بيانات العرض</button></div>
+<div class="card"><h2>تسجيل الدخول</h2>
+<select id="lo" aria-label="المكتب" style="margin-bottom:8px"></select>
+<input class="in" id="ph" inputmode="tel" placeholder="رقم الموبايل" aria-label="رقم الموبايل">
+<input class="in" id="cd" inputmode="numeric" placeholder="الكود" aria-label="الكود">
+<button class="save" id="login" style="margin-top:0">دخول</button>
+<div class="err" id="lerr"></div>
+<div class="sub" style="margin-top:10px">للتجربة: اضغط حساب لتعبئته مع كوده:</div>
+<div class="chips" id="demo"></div></div>
+<div class="card"><h2>طلب حساب جديد</h2>
+<input class="in" id="sn" placeholder="اسمك الكامل" aria-label="الاسم">
+<input class="in" id="sp" inputmode="tel" placeholder="رقم الموبايل" aria-label="رقم الموبايل">
+<select id="sr" aria-label="الوظيفة" style="margin-bottom:8px"><option value="nurse">تمريض</option><option value="sup">مراقب</option><option value="pharm">صيدلي</option><option value="admin">مسؤول إدارة</option></select>
+<select id="so" aria-label="المكتب" style="margin-bottom:8px"></select>
+<select id="sa" class="hide" aria-label="الإدارة" style="margin-bottom:8px"></select>
+<button class="save" id="signup" style="margin-top:0">إرسال الطلب</button>
+<div id="smsg"></div>
+<div class="sub" style="margin-top:8px">حساب المكتب بيعتمده مسؤول إدارته، وحساب الإدارة بيعتمده مدير النظام. بعد الموافقة بيتبعتلك الكود على رقمك.</div></div>
+</div>
+
+<div id="work" class="hide">
+<div class="card" style="display:flex;justify-content:space-between;align-items:center"><div><b id="who"></b><div class="sub" id="whoSub"></div></div><button class="mini n" id="out">خروج</button></div>
+<div id="officeView">
+<div class="card"><div class="sub" id="today"></div></div>
+<div class="card" id="entry"></div>
+<div class="card hide" id="stockV"></div>
+<div class="card" id="alertC"></div>
+</div>
+<div id="admView" class="hide">
+<div id="alertsA"></div>
+<div class="card"><h2 id="reqT">طلبات الحسابات</h2><div id="reqs"></div></div>
+<div class="big"><div><strong id="kTotal">0</strong>منصرف اليوم</div><div><strong id="kReg">0</strong>مكاتب سجلت</div><div><strong id="kRem">0</strong>الرصيد المتبقي</div><div><strong id="kAl">0</strong>إنذارات جديدة</div></div>
+<div class="card"><h2>تقرير بفترة تحددها</h2>
+<div class="sub">من تاريخ</div><input class="in" type="date" id="rf" aria-label="من تاريخ">
+<div class="sub">إلى تاريخ</div><input class="in" type="date" id="rt" aria-label="إلى تاريخ">
+<select id="ro2" aria-label="النطاق" style="margin-bottom:8px"></select>
+<button class="save" id="rb" style="margin-top:0">عرض التقرير</button></div>
+<div id="rout"></div>
+<div class="card"><h2>حسب نوع التطعيم</h2><div id="byV"></div></div>
+<div class="card"><h2>حسب المكتب <span class="sub">(اضغط للتفاصيل)</span></h2><div id="byO"></div></div>
+<div class="card hide" id="offDet"></div>
+<div class="card"><h2>الحسابات وأكوادها</h2><div id="accs"></div></div>
+<div class="card"><h2>عدد الحسابات المسموح لكل مكتب</h2><div id="caps"></div></div>
+</div>
+</div>
+</main>
+</div>
+<div class="toast" id="toast"></div>
+
+<script>
+const V=["الدرن (BCG)","التهاب كبدي ب","شلل فموي","شلل حقن","خماسي","حصبة ونكاف وألمانية","ثلاثي بكتيري"];
+const AD=["إدارة أول المحلة","إدارة ثان المحلة"];
+const O=[{n:"مكتب صحة أول المحلة",a:"العنوان يُضاف بعد التأكد",ad:0},{n:"مكتب صحة رابع المحلة",a:"العنوان يُضاف بعد التأكد",ad:0},{n:"مكتب صحة ثان المحلة",a:"شارع طلعت حرب",ad:1,ll:"30.9573,31.1610"},{n:"مكتب صحة ثالث المحلة",a:"منطقة سليم",ad:1,ll:"30.9558,31.1615"}];
+const S=[["عند الولادة",["الدرن (BCG)","التهاب كبدي ب","شلل فموي"]],["شهرين",["خماسي","شلل فموي","شلل حقن"]],["4 شهور",["خماسي","شلل فموي","شلل حقن"]],["6 شهور",["خماسي","شلل فموي"]],["9 شهور",["شلل فموي"]],["12 شهر",["حصبة ونكاف وألمانية","شلل فموي"]],["18 شهر (سنة ونصف)",["ثلاثي بكتيري (جرعة منشطة)","شلل فموي (جرعة منشطة)","حصبة ونكاف وألمانية (جرعة منشطة)","فيتامين أ"]]];
+const C=[["حملة شلل الأطفال القومية","تتحدد مواعيدها من وزارة الصحة"],["التطعيم الدوري","أيام عمل المكتب الأسبوعية"],["حملات المدارس","حسب جدول الإدارة الصحية"]];
+const R={nurse:"تمريض",sup:"مراقب",pharm:"صيدلي",admin:"مسؤول الإدارة",owner:"مدير النظام"};
+const SH=["منصرف يومي (ساعات العمل الرسمية)","نبطشية مساء","نبطشية صباحي"];
+const ALT=["عطل ثلاجة التطعيمات","انقطاع الكهرباء","عطل جهاز أو كمبيوتر","نقص مستلزمات","أخرى"];
+const STL={new:"جديد",seen:"تم الاستلام",done:"تم الحل"};
+const $=id=>document.getElementById(id);
+const tot=a=>a?a.reduce((x,y)=>x+y,0):0;
+const ymd=d=>{const x=new Date(d);return x.getFullYear()+"-"+String(x.getMonth()+1).padStart(2,"0")+"-"+String(x.getDate()).padStart(2,"0")};
+const now=()=>new Date().toLocaleTimeString("ar-EG",{hour:"numeric",minute:"2-digit"});
+const TD=ymd(new Date());
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("show");setTimeout(()=>t.classList.remove("show"),2200)}
+const rnd=()=>String(1000+Math.floor(Math.random()*9000));
+
+let A=[{name:"منى",phone:"01000000001",office:0,role:"nurse",st:"ok"},{name:"خالد",phone:"01000000002",office:0,role:"sup",st:"ok"},{name:"هالة",phone:"01000000003",office:0,role:"pharm",st:"ok"},{name:"آية",phone:"01000000011",office:2,role:"nurse",st:"ok"},{name:"محمد",phone:"01000000012",office:2,role:"sup",st:"ok"},{name:"سارة",phone:"01000000013",office:2,role:"pharm",st:"ok"},{name:"أحمد",phone:"01000000021",office:-1,adm:0,role:"admin",st:"ok"},{name:"ياسر",phone:"01000000022",office:-1,adm:1,role:"admin",st:"ok"},{name:"مدير النظام",phone:"01000000000",office:-1,adm:-1,role:"owner",st:"ok"},{name:"هبة",phone:"01000000031",office:3,role:"nurse",st:"pending"},{name:"رامي",phone:"01000000032",office:-1,adm:1,role:"admin",st:"pending"}];
+A.forEach(a=>a.code="1234");
+const CAP=O.map(()=>({nurse:1,sup:1,pharm:1}));
+const D={0:{s:[{v:[4,5,8,3,9,6,4],by:"منى",t:"10:05 ص",ap:null},null,null],c:null},1:null,2:{s:[{v:[7,8,12,5,15,9,6],by:"آية",t:"10:15 ص",ap:{by:"محمد",t:"11:00 ص"}},{v:[5,6,8,4,10,7,4],by:"آية",t:"6:40 م",ap:null},null],c:null},3:null};
+const ORD=[{o:0,date:"2026-10-01",by:"هالة",q:[300,300,400,200,500,300,250],note:"طلبية أولية"},{o:1,date:"2026-10-01",by:"—",q:[150,150,200,100,250,150,120],note:"طلبية أولية"},{o:2,date:"2026-10-01",by:"سارة",q:[300,300,400,200,500,300,250],note:"طلبية أولية"},{o:2,date:"2026-10-12",by:"سارة",q:[100,0,100,100,200,100,50],note:"طلبية 12 أكتوبر"},{o:3,date:"2026-10-01",by:"—",q:[150,150,200,100,250,150,120],note:"طلبية أولية"}];
+let ALR=[{id:1,o:2,type:"عطل ثلاجة التطعيمات",note:"الحرارة مرتفعة",by:"آية",t:"9:20 ص",d:TD,st:"new"}];
+const HW=[[30,41,35,44,39,46],[18,22,20,25,19,24],[41,55,38,62,49,57],[22,30,25,28,19,33]];
+const ordSum=(i,k)=>ORD.filter(x=>x.o===i).reduce((s,x)=>s+x.q[k],0);
+const disp=(i,k)=>D[i]?D[i].s.reduce((s,x)=>s+(x?x.v[k]:0),0):0;
+const bal=(i,k)=>ordSum(i,k)-disp(i,k);
+const sm=i=>{const d=D[i];if(!d||!d.s.some(Boolean))return null;const r=V.map(()=>0);d.s.forEach(x=>x&&x.v.forEach((n,k)=>r[k]+=n));return r};
+function dayData(i,ds){
+ if(ds===TD)return sm(i)||V.map(()=>0);
+ if(new Date(ds+"T12:00:00").getDay()===5)return V.map(()=>0);
+ let h=0;for(const c of ds+i)h=(Math.imul(h,31)+c.charCodeAt(0))>>>0;
+ return V.map((_,k)=>{h=(Math.imul(h,1103515245)+12345+k)>>>0;return Math.round([10,12,18,8,22,14,9][k]*(0.6+(h%80)/100)*[1,.6,1,.55][i])});
+}
+let me=null,cur=[],meName="",shI=0;
+const isAd=()=>me&&(me.role==="admin"||me.role==="owner");
+const sc=()=>me.role==="owner"?O.map((_,i)=>i):O.map((_,i)=>i).filter(i=>O[i].ad===me.adm);
+const newAl=()=>isAd()?ALR.filter(x=>x.st==="new"&&sc().includes(x.o)).length:0;
+function badge(){const n=newAl();$("staffBtn").textContent="دخول العاملين"+(n?" 🔔"+n:"")}
+
+document.querySelectorAll("#roles button").forEach(b=>b.onclick=()=>{
+ document.querySelectorAll("#roles button").forEach(x=>x.classList.toggle("on",x===b));
+ ["pub","staff"].forEach(r=>$(r).classList.toggle("hide",r!==b.dataset.r));
+});
+document.querySelectorAll("#ptabs button").forEach(b=>b.onclick=()=>{
+ document.querySelectorAll("#ptabs button").forEach(x=>x.classList.toggle("on",x===b));
+ ["sch","cam","near","me"].forEach(r=>$(r).classList.toggle("hide",r!==b.dataset.t));
+});
+$("sch").innerHTML='<div class="note">الجدول للعرض فقط وبيتراجع من وزارة الصحة قبل النشر.</div><div class="card">'+S.map(s=>`<div class="age"><b>${s[0]}</b><div class="chips">${s[1].map(v=>`<span class="chip">${v}</span>`).join("")}</div></div>`).join("")+'</div>';
+$("cam").innerHTML='<div class="card">'+C.map(c=>`<div class="age"><b>${c[0]}</b><span class="sub">${c[1]}</span></div>`).join("")+'</div>';
+$("near").innerHTML='<div class="note">العناوين تحتاج تأكيد من الإدارة، ومواعيد العمل تتضاف بعد التأكد.</div>'+AD.map((a,j)=>`<div class="card"><h2>${a}</h2>`+O.filter(o=>o.ad===j).map(o=>`<div class="off"><b>${o.n}</b><div class="sub">${o.a}</div><div style="margin-top:4px"><a href="https://www.google.com/maps/search/?api=1&query=${o.ll||encodeURIComponent(o.n+" المحلة الكبرى")}" target="_blank" rel="noopener">افتح الخريطة</a></div></div>`).join("")+'</div>').join("");
+$("today").textContent=new Date().toLocaleDateString("ar-EG",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+
+// ---- الدخول والتسجيل
+const akey=a=>a.role==="owner"?"ow":a.role==="admin"?"a"+a.adm:String(a.office);
+$("lo").innerHTML='<option value="">اختر المكتب</option>'+AD.map((a,j)=>`<optgroup label="${a}">`+O.map((o,i)=>o.ad===j?`<option value="${i}">${o.n}</option>`:"").join("")+`<option value="a${j}">الإدارة (${a})</option></optgroup>`).join("")+'<option value="ow">مدير النظام</option>';
+$("so").innerHTML=O.map((o,i)=>`<option value="${i}">${o.n}</option>`).join("");
+$("sa").innerHTML=AD.map((a,j)=>`<option value="${j}">${a}</option>`).join("");
+$("sr").onchange=()=>{const a=$("sr").value==="admin";$("so").classList.toggle("hide",a);$("sa").classList.toggle("hide",!a)};
+$("demo").innerHTML=A.filter(a=>a.st==="ok").map(a=>`<button class="chip" data-p="${a.phone}">${a.name} (${R[a.role]})</button>`).join("");
+$("demo").querySelectorAll("button").forEach(b=>b.onclick=()=>{const a=A.find(x=>x.phone===b.dataset.p);$("ph").value=a.phone;$("cd").value=a.code;$("lo").value=akey(a)});
+const DM=[["01000000011","تمريض (آية)","تسجيل الجرعات وخصم الرصيد وإرسال إنذار"],["01000000012","مراقب (محمد)","اعتماد الفترات وإغلاق اليوم"],["01000000013","صيدلي (سارة)","إضافة طلبية للرصيد"],["01000000022","مسؤول إدارة ثان (ياسر)","الإنذارات والتقارير والحسابات"],["01000000000","مدير النظام","المحلة كلها واعتماد حسابات الإدارة"]];
+$("tour").innerHTML=DM.map((x,j)=>`<div class="tr"><span><b>${j+1}. ${x[1]}</b><div class="sub">${x[2]}</div></span><button class="mini y" data-p="${x[0]}">ادخل</button></div>`).join("");
+$("tour").querySelectorAll("button").forEach(b=>b.onclick=()=>{const a=A.find(x=>x.phone===b.dataset.p);$("ph").value=a.phone;$("cd").value=a.code;$("lo").value=akey(a);$("login").click()});
+$("rst").onclick=()=>location.reload();
+$("login").onclick=()=>{
+ const a=A.find(x=>x.phone===$("ph").value.trim()),e=$("lerr");
+ if($("lo").value==="")return e.textContent="اختر المكتب.";
+ if(!a)return e.textContent="الرقم غير مسجل. اطلب حساب جديد من الأسفل.";
+ if($("lo").value!==akey(a))return e.textContent="الحساب ده مش تابع للمكتب اللي اخترته.";
+ if(a.st==="off")return e.textContent="الحساب موقوف. تواصل مع مسؤولك.";
+ if(a.st!=="ok")return e.textContent="حسابك بانتظار موافقة المسؤول.";
+ if($("cd").value.trim()!==a.code)return e.textContent="الكود غير صحيح.";
+ e.textContent="";me=a;meName=a.name;render();
+ const n=newAl();if(n)toast("عندك "+n+" إنذار جديد");
+};
+$("out").onclick=()=>{me=null;meName="";$("ph").value=$("cd").value="";render()};
+$("signup").onclick=()=>{
+ const n=$("sn").value.trim(),p=$("sp").value.trim(),r=$("sr").value,m=$("smsg"),ad=r==="admin",o=ad?-1:+$("so").value;
+ const bad=t=>{m.className="err";m.textContent=t};
+ if(!n)return bad("اكتب اسمك.");
+ if(!/^01\d{9}$/.test(p))return bad("رقم الموبايل لازم يكون 11 رقم ويبدأ بـ 01.");
+ if(A.some(x=>x.phone===p))return bad("الرقم ده مسجل بالفعل.");
+ if(!ad&&A.filter(x=>x.office===o&&x.role===r).length>=CAP[o][r])return bad("وصل الحد المسموح لـ"+R[r]+" في هذا المكتب ("+CAP[o][r]+").");
+ A.push({name:n,phone:p,office:o,adm:ad?+$("sa").value:O[o].ad,role:r,st:"pending"});
+ m.className="ok2";m.textContent="تم إرسال الطلب. الكود هيوصلك على رقمك بعد موافقة المسؤول.";
+ $("sn").value=$("sp").value="";
+};
+function render(){
+ $("auth").classList.toggle("hide",!!me);$("work").classList.toggle("hide",!me);badge();
+ if(!me)return;
+ const ad=isAd();
+ $("who").textContent=meName;
+ $("whoSub").textContent=R[me.role]+" · "+(me.role==="owner"?"المحلة كلها":ad?AD[me.adm]:O[me.office].n+" · "+AD[O[me.office].ad]);
+ $("officeView").classList.toggle("hide",ad);$("admView").classList.toggle("hide",!ad);
+ if(ad){fillRep();dash()}else{shI=0;entry()}
+}
+
+// ---- شاشة المكتب
+function entry(){
+ const r=me.role,i=me.office;
+ $("entry").classList.toggle("hide",r==="pharm");$("stockV").classList.toggle("hide",r!=="pharm");
+ alertBox();
+ if(r==="pharm")return stockV();
+ const d=D[i],cl=d&&d.c,sd=d&&d.s[shI],ap=sd&&sd.ap,ed=r==="nurse"&&!cl&&!ap;
+ cur=sd?sd.v.slice():V.map(()=>0);
+ const av=V.map((_,k)=>bal(i,k)+(sd?sd.v[k]:0)),rm=k=>av[k]-cur[k],lw=k=>rm(k)<=20?"color:var(--warn)":"";
+ let h='<div class="tabs" id="shT">'+SH.map((n,j)=>{const x=d&&d.s[j];return `<button data-sh="${j}" class="${j===shI?"on":""}">${n}${x?" ("+tot(x.v)+")"+(x.ap?" ✓":""):""}</button>`}).join("")+'</div>';
+ const st=cl?["اليوم مُغلق","no"]:ap?["معتمد","ok"]:sd?["محفوظ · بانتظار الاعتماد","no"]:["لم يسجل بعد","no"];
+ h+=`<h2>${SH[shI]} <span class="tag ${st[1]}" id="sv">${st[0]}</span></h2><div class="sub">${sd?"سجّل: "+sd.by+" · "+sd.t+(ap?" · اعتمد: "+ap.by+" · "+ap.t:""):r==="sup"?"لسه التمريض ما سجلش":""}</div>`+V.map((v,k)=>`<div class="row"><span>${v}<div class="sub">المتبقي: <b id="rm${k}" style="${lw(k)}">${rm(k)}</b></div></span>`+(ed?`<div class="step"><button aria-label="نقص" data-k="${k}" data-d="-1">−</button><input type="number" min="0" inputmode="numeric" value="${cur[k]}" data-k="${k}" aria-label="${v}"><button aria-label="زيادة" data-k="${k}" data-d="1">+</button></div>`:`<b>${cur[k]}</b>`)+'</div>').join("")+`<div class="row"><b>إجمالي اليوم (الثلاث فترات)</b><b>${sm(i)?tot(sm(i)):0}</b></div>`;
+ if(ed)h+='<button class="save" id="sv2">حفظ الأعداد</button>';
+ if(r==="sup"&&!cl&&sd&&!ap)h+='<button class="save" id="apr">اعتماد '+SH[shI]+'</button>';
+ if(r==="sup"&&!cl&&ap)h+='<button class="mini n" id="unap" style="margin-top:10px">إلغاء الاعتماد للتعديل</button>';
+ if(r==="sup"&&!cl)h+='<button class="save" id="cls" style="background:var(--ink);color:var(--bg)">إغلاق اليوم</button>';
+ if(cl)h+=`<div class="note" style="margin-top:10px">اليوم مُغلق (${d.c.by} · ${d.c.t}). التعديل بعد كده محتاج مسؤول الإدارة يعيد فتحه.</div>`;
+ $("entry").innerHTML=h;
+ $("shT").querySelectorAll("button").forEach(b=>b.onclick=()=>{shI=+b.dataset.sh;entry()});
+ const upd=k=>{$("rm"+k).textContent=rm(k);$("rm"+k).style.color=rm(k)<=20?"var(--warn)":"";$("sv").textContent="تعديلات غير محفوظة";$("sv").className="tag no"};
+ $("entry").querySelectorAll("button[data-d]").forEach(b=>b.onclick=()=>{const k=+b.dataset.k,dd=+b.dataset.d;if(dd>0&&cur[k]+1>av[k])return toast("الرصيد غير كافي");cur[k]=Math.max(0,cur[k]+dd);b.parentNode.querySelector("input").value=cur[k];upd(k)});
+ $("entry").querySelectorAll("input").forEach(n=>n.oninput=()=>{const k=+n.dataset.k;let q=Math.max(0,parseInt(n.value)||0);if(q>av[k]){q=av[k];n.value=q;toast("الرصيد غير كافي")}cur[k]=q;upd(k)});
+ if($("sv2"))$("sv2").onclick=()=>{D[i]=D[i]||{s:[null,null,null],c:null};D[i].s[shI]={v:cur.slice(),by:meName,t:now(),ap:null};toast("تم حفظ الأعداد: "+tot(cur));entry()};
+ if($("apr"))$("apr").onclick=()=>{sd.ap={by:meName,t:now()};toast("تم الاعتماد");entry()};
+ if($("unap"))$("unap").onclick=()=>{sd.ap=null;toast("رجعت للتمريض للتعديل");entry()};
+ if($("cls"))$("cls").onclick=function(){
+  if(!sm(i))return toast("لسه مفيش أعداد مسجلة");
+  if(d.s.some(x=>x&&!x.ap))return toast("اعتمد كل الفترات المسجلة الأول");
+  if(!this.dataset.c){this.dataset.c=1;this.textContent="اضغط تاني لتأكيد إغلاق اليوم";return}
+  D[i].c={by:meName,t:now()};toast("تم إغلاق اليوم");entry()};
+}
+function stockV(){
+ const i=me.office,od=ORD.filter(x=>x.o===i).slice(-5).reverse();
+ $("stockV").innerHTML='<h2>رصيد التطعيمات في المكتب</h2>'+V.map((v,k)=>`<div class="tr"><span>${v}</span><span class="sub">وارد ${ordSum(i,k)} · منصرف ${disp(i,k)} · <b style="color:${bal(i,k)<=20?"var(--warn)":"var(--ok)"}">متبقي ${bal(i,k)}</b></span></div>`).join("")
+ +'<h2 style="margin-top:14px">إضافة طلبية جديدة</h2>'+V.map((v,k)=>`<div class="row"><span>${v}</span><input class="in" style="width:92px;margin:0" type="number" min="0" inputmode="numeric" placeholder="0" data-k="${k}" aria-label="${v}"></div>`).join("")
+ +'<input class="in" id="onote" placeholder="رقم الطلبية أو ملاحظة (اختياري)" style="margin-top:8px"><button class="save" id="oa" style="margin-top:0">إضافة للرصيد</button><div class="err" id="oe"></div>'
+ +'<h2 style="margin-top:14px">آخر الطلبيات</h2>'+(od.length?od.map(x=>`<div class="tr"><span>${x.date} · ${x.by}<div class="sub">${V.map((v,k)=>x.q[k]?v+" "+x.q[k]:"").filter(Boolean).join("، ")}${x.note?" · "+x.note:""}</div></span></div>`).join(""):'<div class="sub">لا توجد طلبيات.</div>');
+ $("oa").onclick=()=>{const q=V.map((_,k)=>Math.max(0,parseInt($("stockV").querySelector('input[data-k="'+k+'"]').value)||0));if(!tot(q))return $("oe").textContent="اكتب كمية لتطعيم واحد على الأقل.";ORD.push({o:i,date:TD,by:meName,q,note:$("onote").value.trim()});toast("تمت إضافة الطلبية للرصيد");stockV()};
+}
+function alertBox(){
+ const i=me.office,mine=ALR.filter(x=>x.o===i).sort((a,b)=>b.id-a.id).slice(0,4);
+ $("alertC").innerHTML=`<h2>إنذار عطل للإدارة</h2><select id="at" aria-label="نوع العطل" style="margin-bottom:8px">${ALT.map(t=>`<option>${t}</option>`).join("")}</select><input class="in" id="an" placeholder="تفاصيل (اختياري)" aria-label="تفاصيل"><button class="save" id="asd" style="margin-top:0">إرسال الإنذار إلى ${AD[O[i].ad]}</button>`+mine.map(x=>`<div class="tr"><span>${x.type}<div class="sub">${x.by} · ${x.t}</div></span><span class="tag ${x.st==="done"?"ok":"no"}">${x.st==="new"?"تم الإرسال":STL[x.st]}</span></div>`).join("");
+ $("asd").onclick=()=>{ALR.push({id:Date.now(),o:i,type:$("at").value,note:$("an").value.trim(),by:meName,t:now(),d:TD,st:"new"});toast("تم إرسال الإنذار إلى "+AD[O[i].ad]);alertBox()};
+}
+
+// ---- لوحة الإدارة
+function alertsA(){
+ const l=ALR.filter(x=>sc().includes(x.o)).sort((a,b)=>(a.st==="done")-(b.st==="done")||b.id-a.id).slice(0,8),n=newAl();
+ $("alertsA").innerHTML=`<div class="card"><h2>الإنذارات ${n?`<span class="tag no">${n} جديد</span>`:""}</h2>`+(l.length?l.map(x=>`<div class="tr" style="flex-wrap:wrap;gap:6px"><span><b>${x.type}</b><div class="sub">${O[x.o].n} · ${x.by} · ${x.t}${x.note?" · "+x.note:""}</div></span><span class="tag ${x.st==="done"?"ok":"no"}">${STL[x.st]}</span>${x.st!=="done"?`<span style="width:100%">${x.st==="new"?`<button class="mini y" data-id="${x.id}" data-s="seen">تم الاستلام</button>`:""}<button class="mini y" data-id="${x.id}" data-s="done">تم الحل</button></span>`:""}</div>`).join(""):'<div class="sub">مفيش إنذارات.</div>')+'</div>';
+ $("alertsA").querySelectorAll("button").forEach(b=>b.onclick=()=>{ALR.find(x=>x.id==b.dataset.id).st=b.dataset.s;toast(STL[b.dataset.s]);dash()});
+}
+function dash(){
+ const ow=me.role==="owner",SC=sc();
+ const all=SC.map(i=>sm(i)).filter(Boolean);
+ const vs=V.map((_,k)=>all.reduce((s,a)=>s+a[k],0)),rem=V.map((_,k)=>SC.reduce((s,i)=>s+bal(i,k),0));
+ $("kTotal").textContent=tot(vs);$("kReg").textContent=all.length+"/"+SC.length;$("kRem").textContent=tot(rem);$("kAl").textContent=newAl();
+ $("byV").innerHTML=V.map((v,k)=>`<div class="tr"><span>${v}</span><span class="sub">منصرف <b>${vs[k]}</b> · متبقي <b style="color:${rem[k]<=40?"var(--warn)":"var(--ok)"}">${rem[k]}</b></span></div>`).join("");
+ $("byO").innerHTML=SC.map(i=>{const o=O[i],d=sm(i),dd=D[i],c=dd&&dd.c,pn=dd&&dd.s.some(x=>x&&!x.ap);return `<div class="tr" role="button" tabindex="0" data-i="${i}" style="cursor:pointer"><span>${o.n}${ow?`<div class="sub">${AD[o.ad]}</div>`:""}</span>${d?`<span><b>${tot(d)}</b> <span class="tag ${c||!pn?"ok":"no"}">${c?"مُغلق":pn?"بانتظار الاعتماد":"معتمد"}</span></span>`:'<span class="tag no">لم يسجل بعد</span>'}</div>`}).join("");
+ $("byO").querySelectorAll(".tr").forEach(r=>{r.onclick=()=>showOff(+r.dataset.i);r.onkeydown=e=>{if(e.key==="Enter")showOff(+r.dataset.i)}});
+ $("reqT").textContent=ow?"طلبات حسابات الإدارة":"طلبات حسابات المكاتب";
+ const pe=A.filter(x=>x.st==="pending"&&(ow?x.role==="admin":x.role!=="admin"&&SC.includes(x.office)));
+ $("reqs").innerHTML=pe.length?pe.map(x=>`<div class="tr"><span>${x.name}<div class="sub">${R[x.role]} · ${x.role==="admin"?AD[x.adm]:O[x.office].n} · ${x.phone}</div></span><span><button class="mini y" data-p="${x.phone}" data-a="1">اعتماد</button><button class="mini n" data-p="${x.phone}" data-a="0">رفض</button></span></div>`).join(""):'<div class="sub">مفيش طلبات جديدة.</div>';
+ $("reqs").querySelectorAll("button").forEach(b=>b.onclick=()=>{const x=A.find(y=>y.phone===b.dataset.p);if(b.dataset.a==="1"){x.st="ok";x.code=rnd();toast("تم الاعتماد. الكود في قائمة الحسابات تحت")}else{A=A.filter(y=>y!==x);toast("تم رفض الطلب")}dash()});
+ $("accs").innerHTML=A.filter(x=>x.st!=="pending"&&x.role!=="owner"&&(ow||(x.role!=="admin"&&SC.includes(x.office)))).map(x=>`<div class="tr" style="flex-wrap:wrap;gap:6px"><span><b>${x.name}</b> · ${R[x.role]} · ${x.role==="admin"?AD[x.adm]:O[x.office].n}${x.st==="off"?' <span class="tag no">موقوف</span>':""}<div class="sub">${x.phone} · الكود ${x.code}</div></span><span style="width:100%"><a class="mini y" style="text-decoration:none;display:inline-block" target="_blank" rel="noopener" href="https://wa.me/20${x.phone.slice(1)}?text=${encodeURIComponent("أهلاً "+x.name+"، كود دخولك لتطبيق التطعيمات: "+x.code)}">إرسال الكود واتساب</a><button class="mini n" data-p="${x.phone}" data-act="code">كود جديد</button><button class="mini n" data-p="${x.phone}" data-act="tog">${x.st==="off"?"تفعيل":"إيقاف"}</button><button class="mini n" data-p="${x.phone}" data-act="del">حذف</button></span></div>`).join("");
+ $("accs").querySelectorAll("button").forEach(b=>b.onclick=()=>{const x=A.find(y=>y.phone===b.dataset.p),c=b.dataset.act;
+  if(c==="code"){x.code=rnd();toast("الكود الجديد: "+x.code)}
+  else if(c==="tog"){x.st=x.st==="off"?"ok":"off";toast(x.st==="off"?"تم إيقاف الحساب":"تم تفعيل الحساب")}
+  else{if(!b.dataset.c){b.dataset.c=1;b.textContent="تأكيد الحذف";return}A=A.filter(y=>y!==x);toast("تم حذف الحساب")}
+  dash()});
+ $("caps").innerHTML=SC.map(i=>`<div class="age"><b>${O[i].n}</b>`+["nurse","sup","pharm"].map(r=>`<div class="tr"><span>${R[r]}<div class="sub">الحالي: ${A.filter(x=>x.office===i&&x.role===r).length}</div></span><span class="step"><button aria-label="نقص" data-i="${i}" data-r="${r}" data-d="-1">−</button><b>${CAP[i][r]}</b><button aria-label="زيادة" data-i="${i}" data-r="${r}" data-d="1">+</button></span></div>`).join("")+"</div>").join("");
+ $("caps").querySelectorAll("button").forEach(b=>b.onclick=()=>{const c=CAP[+b.dataset.i];c[b.dataset.r]=Math.min(20,Math.max(1,c[b.dataset.r]+ +b.dataset.d));dash()});
+ alertsA();badge();
+ if($("rout").innerHTML)report();
+}
+function showOff(i){
+ const o=O[i],d=sm(i),dd=D[i],ac=A.filter(x=>x.office===i&&x.st!=="pending");
+ const H=HW[i].concat(d?tot(d):0),mx=Math.max(...H,1),e=$("offDet");
+ e.classList.remove("hide");
+ e.innerHTML=`<h2>${o.n}</h2><div class="sub">${AD[o.ad]} · ${dd&&dd.c?"اليوم مُغلق ("+dd.c.by+" · "+dd.c.t+")":d?"اليوم مفتوح":"لم يسجل اليوم"}</div>`+(dd&&dd.c?'<button class="mini y" id="ro" style="margin-top:8px">إعادة فتح اليوم</button>':"")
+ +'<h2 style="margin-top:12px">حسب الفترة</h2>'+SH.map((n,j)=>{const x=dd&&dd.s[j];return `<div class="tr"><span>${n}<div class="sub">${x?x.by+" · "+x.t+(x.ap?" · اعتمد: "+x.ap.by:" · بانتظار الاعتماد"):"لم تسجل"}</div></span><b>${x?tot(x.v):0}</b></div>`}).join("")
+ +'<h2 style="margin-top:12px">الأرصدة</h2>'+V.map((v,k)=>`<div class="tr"><span>${v}</span><span class="sub">وارد ${ordSum(i,k)} · منصرف ${disp(i,k)} · <b>متبقي ${bal(i,k)}</b></span></div>`).join("")
+ +'<h2 style="margin-top:12px">آخر 7 أيام (الأخير اليوم)</h2><div style="display:flex;gap:6px;align-items:flex-end;height:80px">'+H.map(x=>`<div title="${x}" style="flex:1;background:var(--pri);border-radius:6px;height:${Math.max(x/mx*100,3)}%"></div>`).join("")+'</div><h2 style="margin-top:12px">حسابات المكتب</h2>'
+ +ac.map(x=>`<div class="tr"><span>${R[x.role]}${x.st==="off"?' <span class="tag no">موقوف</span>':""}<div class="sub">${x.name} · ${x.phone}</div></span></div>`).join("")+'<button class="mini n" id="cl" style="margin-top:10px">إغلاق</button>';
+ $("cl").onclick=()=>e.classList.add("hide");
+ if($("ro"))$("ro").onclick=()=>{dd.c=null;toast("تم إعادة فتح اليوم");dash();showOff(i)};
+ e.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+// ---- التقارير
+const offsOf=v=>{const SC=sc();return v==="all"?SC:v[0]==="a"?SC.filter(i=>O[i].ad===+v[1]):[+v]};
+function fillRep(){const ow=me.role==="owner";$("ro2").innerHTML=`<option value="all">${ow?"المحلة كلها":"كل مكاتب "+AD[me.adm]}</option>`+(ow?AD.map((a,j)=>`<option value="a${j}">${a}</option>`).join(""):"")+sc().map(i=>`<option value="${i}">${O[i].n}</option>`).join("")}
+const w0=new Date();w0.setDate(w0.getDate()-6);
+$("rf").value=ymd(w0);$("rt").value=TD;$("rt").max=TD;$("rf").max=TD;
+function report(){
+ const f=$("rf").value,t=$("rt").value,e=$("rout"),er=m=>e.innerHTML='<div class="card"><div class="err">'+m+'</div></div>';
+ if(!f||!t)return er("اختار تاريخ البداية وتاريخ النهاية.");
+ if(f>t)return er("تاريخ البداية لازم يكون قبل تاريخ النهاية.");
+ const days=[];for(let d=new Date(f+"T12:00:00");ymd(d)<=t&&ymd(d)<=TD;d.setDate(d.getDate()+1))days.push(ymd(d));
+ if(days.length>92)return er("أقصى فترة في التقرير 92 يوم.");
+ const offs=offsOf($("ro2").value),nm=$("ro2").selectedOptions[0].textContent,fn=ds=>fd(new Date(ds+"T12:00:00"));
+ const vt=V.map(()=>0),vin=V.map(()=>0),bn=V.map(()=>0),ot={},oi={},ob={},dl=[];
+ offs.forEach(i=>{ot[i]=0;oi[i]=0;ob[i]=0});
+ days.forEach(ds=>{let x=0;offs.forEach(i=>{const a=dayData(i,ds);a.forEach((n,k)=>vt[k]+=n);const q=tot(a);ot[i]+=q;x+=q});dl.push([ds,x])});
+ const od=ORD.filter(x=>offs.includes(x.o)&&x.date>=f&&x.date<=t);
+ od.forEach(x=>{x.q.forEach((n,k)=>vin[k]+=n);oi[x.o]+=tot(x.q)});
+ offs.forEach(i=>V.forEach((_,k)=>{const b=bal(i,k);bn[k]+=b;ob[i]+=b}));
+ const al=ALR.filter(x=>offs.includes(x.o)&&x.d>=f&&x.d<=t),last=fn(days[days.length-1]||t);
+ const items=x=>V.map((v,k)=>x.q[k]?v+" "+x.q[k]:"").filter(Boolean).join("، ");
+ e.innerHTML=`<div class="card"><h2>تقرير ${nm}</h2><div class="sub">من ${fn(f)} إلى ${last}</div>
+<div class="big" style="margin-top:10px"><div><strong>${tot(vt)}</strong>المنصرف</div><div><strong>${tot(vin)}</strong>الوارد (طلبيات)</div><div><strong>${tot(bn)}</strong>الرصيد الحالي</div><div><strong>${al.length}</strong>إنذارات</div></div>
+<h2>حسب نوع التطعيم</h2>`+V.map((v,k)=>`<div class="tr"><span>${v}</span><span class="sub">وارد <b>${vin[k]}</b> · منصرف <b>${vt[k]}</b> · متبقي <b>${bn[k]}</b></span></div>`).join("")
+ +(offs.length>1?'<h2 style="margin-top:12px">حسب المكتب</h2>'+offs.map(i=>`<div class="tr"><span>${O[i].n}</span><span class="sub">وارد <b>${oi[i]}</b> · منصرف <b>${ot[i]}</b> · متبقي <b>${ob[i]}</b></span></div>`).join(""):"")
+ +'<h2 style="margin-top:12px">الطلبيات في الفترة</h2>'+(od.length?od.map(x=>`<div class="tr"><span>${x.date} · ${O[x.o].n} · ${x.by}<div class="sub">${items(x)}</div></span></div>`).join(""):'<div class="sub">لا توجد طلبيات في الفترة.</div>')
+ +'<h2 style="margin-top:12px">الإنذارات في الفترة</h2>'+(al.length?al.map(x=>`<div class="tr"><span>${x.type}<div class="sub">${O[x.o].n} · ${x.by} · ${x.d}</div></span><span class="tag ${x.st==="done"?"ok":"no"}">${STL[x.st]}</span></div>`).join(""):'<div class="sub">لا توجد إنذارات.</div>')
+ +'<h2 style="margin-top:12px">المنصرف حسب اليوم</h2><div style="max-height:260px;overflow-y:auto">'+dl.map(x=>`<div class="tr"><span>${fn(x[0])}</span><b>${x[1]}</b></div>`).join("")+'</div><button class="mini y" id="rcp" style="margin-top:10px">نسخ التقرير كنص</button><div class="sub" style="margin-top:8px">أرقام الأيام السابقة تجريبية، والرصيد المعروض هو الرصيد الحالي. تصدير Excel وPDF هيتضاف في النسخة الفعلية.</div></div>';
+ $("rcp").onclick=()=>{const tx=["تقرير "+nm,"من "+fn(f)+" إلى "+last,"المنصرف: "+tot(vt)+" · الوارد: "+tot(vin)+" · الرصيد الحالي: "+tot(bn),"",...V.map((v,k)=>v+": وارد "+vin[k]+" · منصرف "+vt[k]+" · متبقي "+bn[k]),"",...(offs.length>1?offs.map(i=>O[i].n+": وارد "+oi[i]+" · منصرف "+ot[i]+" · متبقي "+ob[i]):[]),"","الطلبيات:",...od.map(x=>x.date+" "+O[x.o].n+": "+items(x)),"","الإنذارات: "+al.length,...al.map(x=>x.d+" "+O[x.o].n+": "+x.type+" ("+STL[x.st]+")")].join("\n");try{navigator.clipboard.writeText(tx).then(()=>toast("تم النسخ"),()=>toast("النسخ غير متاح هنا"))}catch(x){toast("النسخ غير متاح هنا")}};
+}
+$("rb").onclick=report;
+
+// ---- العامة: تنبيهات طفلي
+const M=[0,2,4,6,9,12,18];
+let pu="device",KS=[];
+const ld=()=>{try{return JSON.parse(localStorage.getItem("kids:"+pu))||[]}catch(e){return[]}};
+const sv=()=>{try{localStorage.setItem("kids:"+pu,JSON.stringify(KS))}catch(e){}};
+const fd=d=>d.toLocaleDateString("ar-EG",{day:"numeric",month:"long",year:"numeric"});
+function due(b){const bd=new Date(b),t=new Date();t.setHours(0,0,0,0);let prev=null;
+ for(let i=0;i<M.length;i++){const d=new Date(bd);d.setMonth(d.getMonth()+M[i]);const n=Math.round((d-t)/864e5);if(n>=0)return{i,d,n,prev};if(n>=-30)prev={i,n:-n}}
+ return{i:-1,prev}}
+function renderMe(){
+ const el=$("me"),al=$("alert");al.innerHTML="";
+ KS=ld();let soon="";
+ el.innerHTML=(KS.length?KS.map((k,j)=>{
+  const u=due(k.b);let h=`<div class="card"><div style="display:flex;justify-content:space-between"><b>${k.n}</b><button class="mini n" data-j="${j}">حذف</button></div><div class="sub">تاريخ الميلاد: ${fd(new Date(k.b))}</div>`;
+  if(u.prev)h+=`<div class="note" style="margin-top:8px">فات موعد تطعيم "${S[u.prev.i][0]}" من ${u.prev.n} يوم. لو لسه ما اتطعمش، روح أقرب مكتب صحة.</div>`;
+  if(u.i<0)h+='<div class="sub" style="margin-top:8px">مفيش مواعيد قادمة في الجدول الأساسي.</div>';
+  else{if(u.n<=14)soon+=`<div class="note">اقترب موعد تطعيم ${k.n} ("${S[u.i][0]}") بعد ${u.n} يوم.</div>`;
+   h+=`<div class="age"><b>التطعيم القادم: ${S[u.i][0]}</b><span class="sub">${fd(u.d)} · بعد ${u.n} يوم</span><div class="chips">${S[u.i][1].map(v=>`<span class="chip">${v}</span>`).join("")}</div></div>`}
+  return h+"</div>"}).join(""):'<div class="card sub">ضيف طفل عشان نفكرك بالمواعيد.</div>')+'<div class="card"><h2>إضافة طفل</h2><input class="in" id="kn" placeholder="اسم مختصر للطفل" aria-label="اسم الطفل"><input class="in" type="date" id="kb" aria-label="تاريخ الميلاد"><input class="in" id="kp" inputmode="tel" placeholder="رقم موبايل للتنبيه (اختياري)" aria-label="رقم الموبايل"><label class="sub" style="display:block;margin-bottom:8px"><input type="checkbox" id="kc"> موافق على حفظ تاريخ الميلاد لإرسال تنبيهات التطعيم</label><button class="save" id="ka" style="margin-top:0">إضافة</button><div class="err" id="ke"></div><div class="sub" style="margin-top:8px">من غير تسجيل دخول. البيانات محفوظة على جهازك بس.</div></div>';
+ al.innerHTML=soon;
+ el.querySelectorAll("button[data-j]").forEach(b=>b.onclick=()=>{KS.splice(+b.dataset.j,1);sv();renderMe()});
+ $("ka").onclick=()=>{const n=$("kn").value.trim(),b=$("kb").value;if(!n||!b)return $("ke").textContent="اكتب الاسم وتاريخ الميلاد.";if(new Date(b)>new Date())return $("ke").textContent="تاريخ الميلاد غير صحيح.";if(!$("kc").checked)return $("ke").textContent="لازم توافق على حفظ التاريخ.";const ph=$("kp").value.trim();if(ph&&!/^01\d{9}$/.test(ph))return $("ke").textContent="رقم الموبايل لازم يكون 11 رقم ويبدأ بـ 01.";KS.push({n,b,ph});sv();renderMe()};
+}
+renderMe();
+
+render();
+</script>
+</body>
+</html>
